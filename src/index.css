@@ -1,0 +1,78 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1e1e1e;
+}
+.weather-report{
+  background:linear-gradient(#457F96,#18D1AD) ;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  border-radius: 30px;
+  margin: 2% 0;
+}
+.weather-report-header{
+  color: black;
+  font-family: popins,sans-serif;
+  font-weight: 600;
+  font-family: 25px;
+  text-align: center;
+}
+.weather-report-input input{
+  padding: 5px 10px;
+  width: 500px;
+  border-radius: 30px;
+  border: none;
+  font-size: 20px;
+  padding-left: 40px;
+}
+.glass{
+  position: relative;
+}
+.glass i{
+  position: absolute;
+  top: 30%;
+  left: 2%;
+  color: gray;
+}
+.weather-report-input input:focus{
+  outline: none;
+}
+.weather-report-input input::placeholder{
+  font-size: 16px;
+
+}
+.weather-report-input button{
+  background:linear-gradient(#039FD9),#ffffff ;
+  padding: 15px 20px;
+  border-radius: 30px;
+  border: rgb(0, 0, 0) 1px solid;
+  margin-top: 20px;
+  margin-left:40%;  
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 5px 8px;
+}
+.weather-report-des{
+  font-family: poppin,sans-serif;
+  font-family: 400;
+  font-size: 20px;
+  text-align: start;
+}
+.errmsg{
+  color: rgba(204, 3, 3, 0.777);
+  font-family: popins,sans-serif;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-size: 20px;
+}
+h1,h2,p{
+  text-transform: capitalize;
+}
