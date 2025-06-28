@@ -18,6 +18,8 @@ body{
   gap: 50px;
   border-radius: 30px;
   margin: 2% 0;
+  flex-grow: 1;
+  flex-basis: auto;
 }
 .weather-report-header{
   color: black;
@@ -75,4 +77,24 @@ body{
 }
 h1,h2,p{
   text-transform: capitalize;
+}
+@media screen and (max-width:450px)  {
+  .weather-report h1{
+    font-size: 20px;
+  }
+  .weather-report h2{
+    font-size: 20px;
+  }
+  .weather-report-input input{
+  padding: 5px 10px;
+  width: 280px;
+  border-radius: 30px;
+  border: none;
+  font-size: 20px;
+  padding-left: 30px;
+}
+.weather-report-input button{
+  
+  margin-left:35%;  
+}
 }

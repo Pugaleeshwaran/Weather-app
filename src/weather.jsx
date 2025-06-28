@@ -14,6 +14,7 @@ function Weather() {
     const [des, setdes] = useState("")
     const [check, setcheck] = useState(true)
     var [img, setImg] = useState();
+    var [wind,setwind]=useState("")
 
     const handlechange = (event) => {
         setcity(event.target.value)
@@ -22,10 +23,11 @@ function Weather() {
         var weatherdata = axios(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=aa9f7d43dd00e2fe018868876af5aaff`)
 
         weatherdata.then(function (report) {
-            console.log(report.data.main.temp)
+            console.log(report.data.wind.gust)
             setweather(report.data.weather[0].main)
             settem((report.data.main.temp - 273.15).toFixed(2))
             setdes(report.data.weather[0].description)
+            setwind(report.data.wind.gust)
             setcheck(true)
 
             const iconMap = {
@@ -75,6 +77,7 @@ function Weather() {
                 <h2>Weather :{weather}</h2>
                 <h2>Temprature :{tem}&#176;C</h2>
                 <h2>Description :{des}</h2>
+                <h2>Wind Gust :{wind}</h2>
             </div> : <h3 className="errmsg">Invalid City Name Please Enter Correct City Name or Check the Spelling</h3>}
 
 
