@@ -1,100 +1,384 @@
-*{
+* {
   padding: 0;
   margin: 0;
 }
-body{
+
+.navbar {
+  padding: 20px 30px;
+  background-color: hsl(231, 18%, 14%);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  background: #1e1e1e;
 }
-.weather-report{
-  background:linear-gradient(#457F96,#18D1AD) ;
-  padding: 20px;
+
+.nav_left {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.nav_right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.nav_right h3 {
+  cursor: pointer;
+  color: white;
+  padding: 5px 10px;
+  font-size: 16px;
+  border: hsl(231, 18%, 14%) 1px solid;
+  transition: 200ms all ease-in;
+}
+
+.nav_right h3:hover {
+  padding: 5px 10px;
+  color: #009AD8;
+  border: #009AD8 1px solid;
+  border-radius: 30px;
+}
+
+.weather-report {
+  padding: 30px 40px;
+  background-image: url(./img/city.jpg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 50px;
-  border-radius: 30px;
-  margin: 2% 0;
-  flex-grow: 1;
-  flex-basis: auto;
-}
-.weather-report-header{
-  color: black;
-  font-family: popins,sans-serif;
-  font-weight: 600;
-  font-family: 25px;
-  text-align: center;
-}
-.weather-report-input input{
-  padding: 5px 10px;
-  width: 500px;
-  border-radius: 30px;
-  border: none;
-  font-size: 20px;
-  padding-left: 40px;
-}
-.glass{
+  height: 350px;
   position: relative;
 }
-.glass i{
-  position: absolute;
-  top: 30%;
-  left: 2%;
-  color: gray;
+
+.weather-report-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -100px;
 }
-.weather-report-input input:focus{
+
+.weather-report-input input {
+  padding: 20px 30px;
+  width: 1000px;
+  background-color: #1D1F2A;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  font-size: 16px;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.weather-report-input input::placeholder {
+  padding: 0px 10px 0 0;
+}
+
+.weather-report-input input:focus {
   outline: none;
 }
-.weather-report-input input::placeholder{
-  font-size: 16px;
 
-}
-.weather-report-input button{
-  background:linear-gradient(#039FD9),#ffffff ;
-  padding: 15px 20px;
+.weather-report-input button {
+  position: absolute;
+  background: #009AD8;
+  right: 5px;
+  top: 5px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  padding: 15px 35px;
+  font-size: 16px;
+  border: none;
   border-radius: 30px;
-  border: rgb(0, 0, 0) 1px solid;
-  margin-top: 20px;
-  margin-left:40%;  
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.6) 0px 5px 8px;
 }
-.weather-report-des{
-  font-family: poppin,sans-serif;
+
+.report-board {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  justify-content: space-between;
+  width: 1200px;
+  margin-top: 100px;
+  color: white;
+  background-color: #323544;
+  border-radius: 15px;
+  height: 300px;
+  position: absolute;
+  top: 35%;
+}
+
+.report-mon {
+  color: #BFC1C8;
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  height: 300px;
+}
+
+.mon-head {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  background-color: #2D303D;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  height: 10%;
+  font-size: 16px;
+  border-top-left-radius: 15px;
+}
+.mon-head-one{
+  display: flex;
+  gap: 15px;
+}
+/* .mon-body{
+  padding: 10px 15px;
+   height: 95%;
+   display: flex;
+   align-items: center;
+} */
+.mon-body {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90%;
+}
+
+.mon-body h3 {
+  color: #BFC1C8;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 18px;
+}
+
+.mon-deg {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  font-size: 36px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+
+}
+
+.mon-deg {
+  text-align: center;
+}
+
+.mon-deg p {
+  font-size: 90px;
+  color: white;
+}
+
+.mon-deg img {
+  width: 90px;
+}
+
+.mon-sub {
+  display: flex;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  gap: 15px;
+}
+
+.mon-sub img {
+  width: 26px;
+}
+
+.mon-sub {
+  font-size: 16px;
+  text-transform: lowercase;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.report-sub1 {
+  color: #BFC1C8;
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  height: 300px;
+}
+.sub1-head{
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  background-color: #222530;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
+  height: 10%;
+  font-size: 16px;
+}
+.sub1-body{
+    padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  height: 90%;
+  background-color: #262936;
+}
+.sub1-body1 img{
+  width: 50px;
+}
+.sub1-body2 p{
+  font-size: 26px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.report-sub2 {
+  color: #BFC1C8;
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  height: 300px;
+}
+.sub2-head{
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  background-color: #2D303D;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
+  height: 10%;
+  font-size: 16px;
+}
+.sub2-body{
+    padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  height: 90%;
+  background-color: #323544;
+}
+.sub2-body1 img{
+  width: 50px;
+}
+.sub2-body2 p{
+  font-size: 26px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.report-sub3{
+    color: #BFC1C8;
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  height: 300px;
+  border-top-right-radius: 15px;
+}
+.sub3-head{
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+ background-color: #222530;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
+  height: 10%;
+  font-size: 16px;
+    border-top-right-radius: 15px;
+}
+.sub3-body{
+    padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  height: 90%;
+  background-color: #262936;
+  border-bottom-right-radius: 15px;
+}
+.weather-report-des {
+  font-family: poppin, sans-serif;
   font-family: 400;
   font-size: 20px;
   text-align: start;
 }
-.errmsg{
-  color: rgba(204, 3, 3, 0.777);
-  font-family: popins,sans-serif;
-  font-weight: 500;
+
+.errmsg {
+  color: white;
+  font-family: popins, sans-serif;
+  font-weight: 600;
+  padding: 5px 20px;
   text-transform: capitalize;
-  font-size: 20px;
-}
-h1,h2,p{
-  text-transform: capitalize;
-}
-@media screen and (max-width:450px)  {
-  .weather-report h1{
-    font-size: 20px;
-  }
-  .weather-report h2{
-    font-size: 20px;
-  }
-  .weather-report-input input{
-  padding: 5px 10px;
-  width: 280px;
-  border-radius: 30px;
-  border: none;
-  font-size: 20px;
-  padding-left: 30px;
-}
-.weather-report-input button{
+  font-size: 36px;
+  border-radius: 15px;
+  text-align: start;
+  position: absolute;
+  background-color: #323544;
   
-  margin-left:35%;  
 }
+.live-report{
+  background-color: #1E202B;
+  color: white;
+  height: 500px;
+}
+.live-report-city img{
+  width: 300px;
+}
+h1,
+h2,
+p {
+  text-transform: capitalize;
+}
+
+@media screen and (max-width:450px) {
+  .weather-report h1 {
+    font-size: 20px;
+  }
+
+  .weather-report h2 {
+    font-size: 20px;
+  }
+
+  .weather-report-input input {
+    padding: 5px 10px;
+    width: 280px;
+    border-radius: 30px;
+    border: none;
+    font-size: 20px;
+    padding-left: 30px;
+  }
+
+  .weather-report-input button {
+
+    margin-left: 35%;
+  }
 }

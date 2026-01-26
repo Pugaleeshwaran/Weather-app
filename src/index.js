@@ -2,8 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import Result from "./result"
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <App />
+    <div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<App />}></Route>
+                <Route path='/result' element={<Result />}></Route>
+            </Routes>
+
+        </BrowserRouter>
+    </div >
+
 );
