@@ -359,26 +359,196 @@ p {
   text-transform: capitalize;
 }
 
-@media screen and (max-width:450px) {
-  .weather-report h1 {
-    font-size: 20px;
+/* ---------- Responsive: laptops and tablets ---------- */
+@media screen and (max-width:1280px) {
+  .weather-report {
+    height: auto;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 40px 20px;
+    justify-content: flex-start;
+    background-attachment: scroll;
   }
 
-  .weather-report h2 {
-    font-size: 20px;
+  .weather-report-input {
+    top: 0;
+    width: 100%;
+    max-width: 1000px;
   }
 
   .weather-report-input input {
-    padding: 5px 10px;
-    width: 280px;
-    border-radius: 30px;
-    border: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 140px;
+  }
+
+  .errmsg {
+    position: static;
+    margin-top: 20px;
     font-size: 20px;
-    padding-left: 30px;
+    text-align: center;
+  }
+
+  /* Today card on top, the 7 days in one row below */
+  .report-board {
+    position: static;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    margin-top: 30px;
+    grid-template-columns: repeat(7, 1fr);
+    overflow: hidden;
+  }
+
+  .report-mon {
+    grid-column: 1 / -1;
+    width: auto;
+    height: auto;
+  }
+
+  .mon-head,
+  .sub3-head {
+    border-radius: 0;
+  }
+
+  .mon-body {
+    gap: 20px;
+  }
+
+  .report-sub1,
+  .report-sub2,
+  .report-sub3 {
+    width: auto;
+    height: auto;
+  }
+
+  .sub1-body,
+  .sub2-body,
+  .sub3-body {
+    padding: 20px 10px;
+    border-radius: 0;
+  }
+
+  .sub1-body1 img,
+  .sub2-body1 img {
+    height: 50px;
+  }
+}
+
+/* ---------- Responsive: small tablets ---------- */
+@media screen and (max-width:1000px) {
+  .nav_right {
+    gap: 20px;
+  }
+
+  .sub1-head,
+  .sub2-head,
+  .sub3-head {
+    font-size: 14px;
+    padding: 10px 4px;
+  }
+}
+
+/* ---------- Responsive: phones ---------- */
+@media screen and (max-width:700px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  .nav_right {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .nav_right h3,
+  .nav_right h3:hover {
+    font-size: 13px;
+    padding: 5px 8px;
+  }
+
+  .weather-report {
+    padding: 25px 15px;
+  }
+
+  .weather-report-input input {
+    padding: 15px 20px;
+    padding-right: 100px;
   }
 
   .weather-report-input button {
+    padding: 11px 20px;
+  }
 
-    margin-left: 35%;
+  .errmsg {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+
+  .report-board {
+    margin-top: 20px;
+    grid-template-columns: 1fr;
+  }
+
+  .mon-body {
+    padding: 20px;
+  }
+
+  .mon-deg {
+    gap: 20px;
+  }
+
+  .mon-deg p {
+    font-size: 60px;
+  }
+
+  .mon-deg img {
+    width: 70px;
+  }
+
+  .mon-sub {
+    flex-wrap: wrap;
+  }
+
+  /* Each day becomes a row: day name | icon | temperature */
+  .report-sub1,
+  .report-sub2,
+  .report-sub3 {
+    flex-direction: row;
+  }
+
+  .sub1-head,
+  .sub2-head,
+  .sub3-head {
+    width: 40%;
+    height: auto;
+    justify-content: flex-start;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  .sub1-body,
+  .sub2-body,
+  .sub3-body {
+    flex: 1;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px 20px;
+    gap: 10px;
+  }
+
+  .sub1-body1 img,
+  .sub2-body1 img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .sub1-body2 p,
+  .sub2-body2 p {
+    font-size: 20px;
   }
 }
