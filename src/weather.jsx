@@ -1,9 +1,7 @@
 import axios from "axios"
 import DateTime from "./data"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import hum from "./img/humidity.png"
-import rain from "./img/wind.png"
-import icon1 from "./img/icons/icon-1.svg"
 import umber from "./img/icons/umber.png"
 import windi from "./img/icons/wind.png"
 import composs from "./img/icons/compass.png"
@@ -14,56 +12,54 @@ import cloudtunder from "./img/icon-12.svg"
 import cloudrain from "./img/icon-13.svg"
 import cloudsnow from "./img/icon-14.svg"
 
+const iconMap = {
+    clouds: cloud,
+    clear: suncloud,
+    rain: cloudrain,
+    drizzle: cloudsnow,
+    mist: cloudhaze,
+    haze: cloudhaze,
+    smoke: cloudhaze,
+    fog: cloudhaze,
+    dust: cloudhaze,
+    thunderstorm: cloudtunder,
+    hum: hum,
+    snow: cloudsnow,
+};
+
 function Weather() {
     const [city, setcity] = useState("")
 
-    const [weather, setweather] = useState("")
     const [tem, settem] = useState("")
-    const [des, setdes] = useState("")
     const [check, setcheck] = useState(true)
     var [img, setImg] = useState();
     var [wind, setwind] = useState("")
     var [humi, sethumi] = useState("")
     const [statict, setstatict] = useState("Chennai")
-    const [statem, setstatem] = useState("");
-    const [stahum, setstahum] = useState("");
-    const [stawind, setstawind] = useState("");
     const handlechange = (event) => {
         setcity(event.target.value)
     }
 
 
-    axios(`https://api.openweathermap.org/data/2.5/weather?q=${statict}&appid=aa9f7d43dd00e2fe018868876af5aaff`)
+    // Load the default city once when the page opens
+    useEffect(() => {
+        axios(`https://api.openweathermap.org/data/2.5/weather?q=Chennai&appid=aa9f7d43dd00e2fe018868876af5aaff`)
 
-        .then(function (report) {
-            console.log(report)
-            setweather(report.data.weather[0].main)
-            settem((report.data.main.temp - 273.15).toFixed(1))
-            setdes(report.data.weather[0].description)
-            setwind(report.data.wind.speed)
-            sethumi(report.data.main.humidity)
-            // setstatem((report.data.main.temp - 273.15).toFixed(1));
-            // setstahum(report.data.main.humidity)
-            // setstawind(report.data.wind.speed)
-            const iconMap = {
-                clouds: cloud,
-                clear: suncloud,
-                rain: cloudrain,
-                drizzle: cloudsnow,
-                mist: cloudhaze,
-                hum: hum,
-                snow: cloudsnow,
-            };
-            const main = report.data.weather[0].main.toLowerCase();
+            .then(function (report) {
+                console.log(report)
+                settem((report.data.main.temp - 273.15).toFixed(1))
+                setwind(report.data.wind.speed)
+                sethumi(report.data.main.humidity)
+                const main = report.data.weather[0].main.toLowerCase();
 
-            if (iconMap[main]) {
-                setImg(iconMap[main]);
-                console.log(img)
-            }
-        })
-        .catch(function (err) {
-            console.log(err)
-        })
+                if (iconMap[main]) {
+                    setImg(iconMap[main]);
+                }
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
+    }, [])
 
 
 
@@ -73,29 +69,16 @@ function Weather() {
 
         weatherdata.then(function (report) {
             console.log(report.data.main)
-            setweather(report.data.weather[0].main)
             settem((report.data.main.temp - 273.15).toFixed(1))
-            setdes(report.data.weather[0].description)
             setwind(report.data.wind.speed)
             sethumi(report.data.main.humidity)
             setcheck(true)
             setstatict(city.charAt(0).toUpperCase() + city.slice(1))
 
-
-            const iconMap = {
-                clouds: cloud,
-                clear: suncloud,
-                rain: cloudrain,
-                drizzle: cloudsnow,
-                mist: cloudhaze,
-                hum: hum,
-                snow: cloudsnow,
-            };
             const main = report.data.weather[0].main.toLowerCase();
 
             if (iconMap[main]) {
                 setImg(iconMap[main]);
-                console.log(img)
             }
 
 
@@ -138,16 +121,16 @@ function Weather() {
 
                         <div className="mon-sub">
                             <div className="mon-sub">
-                                <img src={umber} />
+                                <img src={umber} alt="humidity-icon" />
                                 <p>{humi}%</p>
 
                             </div>
                             <div className="mon-sub">
-                                <img src={windi} />
+                                <img src={windi} alt="wind-icon" />
                                 <p>{wind}</p>
                             </div>
                             <div className="mon-sub">
-                                <img src={composs} />
+                                <img src={composs} alt="direction-icon" />
                                 <p>East</p>
                             </div>
                         </div>

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
-import { data } from "react-router-dom";
 
 function DateTime() {
     const [date, setdate] = useState(new Date());
     useEffect(function () {
-        setInterval(()=>setdate(new Date()),1000)
+        const timer = setInterval(()=>setdate(new Date()),1000)
+        return () => clearInterval(timer)
     }, [])
     return (
         <div>
